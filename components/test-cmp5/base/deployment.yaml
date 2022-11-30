@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/created-by: application-service
+    app.kubernetes.io/instance: test-cmp5
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: test-cmp5
+    app.kubernetes.io/part-of: test-app
+  name: test-cmp5
+  namespace: test6
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: test-cmp5
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app.kubernetes.io/instance: test-cmp5
+    spec:
+      containers:
+      - image: quay.io/redhat-appstudio/user-workload:test6-test-cmp5
+        imagePullPolicy: Always
+        name: container-image
+        resources: {}
+status: {}
